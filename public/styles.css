@@ -1,0 +1,141 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', serif;
+}
+
+nav{
+    display: flex;
+    margin: 15px 15px;
+    background-image: linear-gradient(to right, #A9C46C, #D5E7B5);
+    height: 50px;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 1px 1px 8px black;
+}
+.signInLink:link {
+    text-decoration: none;
+    font-size: large;
+  }
+  
+.signInLink:visited {
+    text-decoration: none;
+    color: black;
+}
+.title{
+    width: 94%;
+    display: flex;
+}
+.logo{
+    padding-left: 18px;
+}
+nav h1{
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.formPage{
+    padding: 100px 30px;
+    background-color: white;
+    width: 50%;
+    margin: 70px 25%;
+    border-radius: 40px;
+    box-shadow: 10px 10px 15px black;
+}
+
+.form-control{
+    margin: 10px;
+}
+.form-control:hover {
+    border-color: #000;
+}
+.btn{
+    margin: 10px;
+}
+
+.formPage h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+.loginbg{
+    background-image: linear-gradient(to right, #A9C46C, #D5E7B5);
+}
+
+.login{
+    cursor: pointer;
+}
+
+form h6{
+    text-align: center;
+}

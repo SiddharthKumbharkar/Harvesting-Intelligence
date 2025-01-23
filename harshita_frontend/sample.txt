@@ -1,0 +1,19 @@
+#D5E7B5
+
+// Card
+<div class="col-12 col-sm-6 col-md-12 col-lg-6 highlight-card-wrapper">
+      <div class="highlight-pointers-wrapper">
+        
+        
+        
+        
+        
+        
+        <img src="https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=512&amp;height=512&amp;name=growing-plant.png" alt="growing-plant" loading="lazy" width="512" height="512" style="max-width: 100%; height: auto;" srcset="https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=256&amp;height=256&amp;name=growing-plant.png 256w, https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=512&amp;height=512&amp;name=growing-plant.png 512w, https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=768&amp;height=768&amp;name=growing-plant.png 768w, https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=1024&amp;height=1024&amp;name=growing-plant.png 1024w, https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=1280&amp;height=1280&amp;name=growing-plant.png 1280w, https://www.xenonstack.com/hs-fs/hubfs/growing-plant.png?width=1536&amp;height=1536&amp;name=growing-plant.png 1536w" sizes="(max-width: 512px) 100vw, 512px">
+        
+        <div class="highlight-card-content-wrapper">
+          <h3>Detailed Detection</h3>
+          <p>Identifies early disease symptoms by examining subtle shifts in plant physiology and leaf structure</p>
+        </div>
+      </div>
+    </div>
