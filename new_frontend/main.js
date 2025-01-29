@@ -1,7 +1,7 @@
 console.log("welcome")
 let signin = document.getElementById('signInLink');
 let disease = document.getElementById('feature1');
-let yield = document.getElementById('feature2');
+let yieldOp = document.getElementById('feature2');
 let cropSelection = document.getElementById('feature3');
 
 signin.addEventListener('click', () => {
@@ -12,7 +12,7 @@ disease.addEventListener('click', () => {
     window.location.href = 'disease_detection.html';
 })
 
-yield.addEventListener('click', () => {
+yieldOp.addEventListener('click', () => {
     window.location.href = 'yield_optimization.html';
 })
 
