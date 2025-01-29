@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,33 +7,30 @@
     <script src="https://kit.fontawesome.com/9d1acc721d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <div class="title">
-        <i class="logo fa-2x fa-solid fa-seedling"></i>
-        <h1>Harvesting Intelligence</h1>
-        </div>
-        <h6 id="signInLink" class="signIn">Sign In</h6>
-    </nav>
-    <div class="Intro">
-        <div class="introText">
-            <h2>AI Solutions for Disease Detection, Yield Optimization and Crop Selection</h2>
-        </div>
-        
-        <div class="featuresDiv">
-            <div class="feature" id="feature1">
-                <div>Disease</div>
-                <div>Detection</div>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <i class="logo fa-2x fa-solid fa-seedling nav-icon"></i>
+                <h1>Harvesting Intelligence</h1>
             </div>
-            <div class="feature" id="feature2">
-                <div>Yield</div>
-                <div>Optimization</div>
-            </div>
-            <div class="feature" id="feature3">
-                <div>Crop</div>
-                <div>Selection</div>
-            </div>
-        </div>
-    </div>
+            <button class="sign-in" id="signin">Sign In</button>
+        </nav>
+    </header>
+    <div class="tagline">Empowering Farmers with AI-driven Insights</div>
+    <main class="main">
+        <section id="disease-detection" class="card">
+            <h2>🌿 Crop Disease Detection</h2>
+            <p>Identify diseases using AI-powered image recognition.</p>
+        </section>
+        <section id="yield-optimisation" class="card">
+            <h2>🌾 Yield Optimisation</h2>
+            <p>Improve your crop yield with data-driven recommendations.</p>
+        </section>
+        <section id="crop-selection" class="card">
+            <h2>🌱 Crop Selection</h2>
+            <p>Choose the best crops based on soil and climate.</p>
+        </section>
+    </main>
     <script src="main.js"></script>
 </body>
 </html>

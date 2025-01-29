@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .auth-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 10px;
+            background: #2c5e1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .auth-container button:hover {
+            background: #1b4d0f;
+        }
+        .auth-container p {
+            margin-top: 10px;
+            color: #1b4d0f;
+        }
+        .auth-container a {
+            color: #2c5e1a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Sign Up</h2>
+        <form action="welcome.html" method="POST">
+            <input type="username" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="district" placeholder="District" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+    </div>
+</body>
+</html>
