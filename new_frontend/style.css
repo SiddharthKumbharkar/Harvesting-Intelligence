@@ -100,12 +100,51 @@ h1 {
 }
 
 .card:hover {
+    cursor: pointer;
     transform: translateY(-5px);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     color: #1b4d0f;
+}
+
+.crop-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+#disease-detection:hover .crop-options {
+    opacity: 1;
+    transform: translateY(0);
+}
+.crop-btn {
+    background: white;
+    color: #2c5e1a;
+    border: 2px solid #2c5e1a;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.crop-btn:hover {
+    background: #2c5e1a;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.crop-btn img {
+    width: 24px;
+    height: 24px;
 }
 
 @media (max-width: 768px) {
