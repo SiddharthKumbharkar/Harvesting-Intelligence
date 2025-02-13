@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Webchat</title>
+</head>
+<body>
+  <!-- Other content -->
+
+  <!-- Botpress Webchat Scripts -->
+  <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      botId: "d3aea06d-0f04-4701-bec3-b457caf79902",
+      clientId: "2cd04315-648d-4b14-a4a0-6201e8695e39",
+      host: "https://cdn.botpress.cloud/webchat/v2",
+      messagingUrl: "https://messaging.botpress.cloud",
+      botName: "My Bot",
+      avatarUrl: "",
+      theme: "light",
+      themeParams: {
+        color: "#3B82F6",
+        variant: "solid",
+        fontFamily: "inter",
+        radius: 1
+      }
+    });
+
+    window.botpressWebChat.on("webchat:ready", () => {
+      window.botpressWebChat.open();
+    });
+  </script>
+</body>
+</html>
