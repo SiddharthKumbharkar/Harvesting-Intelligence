@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheat Leaf Disease Detection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #A0D683, #72BF78);
+            /* background-image: url("images/image.jpg"); */
+            color: #fff;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+        }
+        h1::before {
+            content: '\1F35A';
+            margin-right: 10px;
+        }
+        .upload-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px dashed #fff;
+            width: 350px;
+            margin: 20px auto;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+        .upload-container:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        input[type="file"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 100%;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            color: #2e7d32;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+        }
+        input[type="file"]::-webkit-file-upload-button {        
+            background: #2e7d32;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background: #1b5e20;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2e7d32;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #2e7d32;
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+        }
+        button::after {
+            content: '\1F4E4';
+            margin-left: 10px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+        .home-button {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            color: #2e7d32;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .home-button:hover {
+            background: #2e7d32;
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">Home</a>
+    <h1>Rice Leaf Disease Detection</h1>
+    <div class="upload-container">
+        <input type="file" id="fileInput" accept="image/*">
+        <button onclick="uploadImage()">Upload and Predict</button>
+    </div>
+    <div class="result">
+        <h2>Prediction: <span id="predictionResult"></span></h2>
+        <img id="uploadedImage" src="" alt="Uploaded Image">
+    </div>
+
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('fileInput');
+            const predictionResult = document.getElementById('predictionResult');
+            const uploadedImage = document.getElementById('uploadedImage');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image first.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    predictionResult.textContent = data.disease;
+                    uploadedImage.src = data.image_url;
+                } else {
+                    predictionResult.textContent = 'Error: ' + data.error;
+                }
+            } catch (error) {
+                predictionResult.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- python3.10 -m venv tf-venv -->
