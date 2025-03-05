@@ -1,0 +1,25 @@
+{
+  "name": "harvesting-intelligence",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/SiddharthKumbharkar/Harvesting-Intelligence#readme",
+  "bugs": {
+    "url": "https://github.com/SiddharthKumbharkar/Harvesting-Intelligence/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiddharthKumbharkar/Harvesting-Intelligence.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {}
+}
