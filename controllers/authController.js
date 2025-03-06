@@ -36,18 +36,6 @@ exports.register = async (req, res) => {
   }
 };
 
-
-// exports.login = async (req, res) => {
-//   const { email, password } = req.body;
-//   const user = await getUserByEmail(email);
-
-//   if (!user || !(await bcrypt.compare(password, user.password))) {
-//     return res.status(401).json({ message: "Invalid credentials" });
-//   }
-
-//   const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-//   res.json({ token });
-// };
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -61,7 +49,7 @@ exports.login = async (req, res) => {
 
       const user = userResult.rows[0];
 
-      // ✅ Verify password using bcrypt
+      //  Verify password using bcrypt
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
           return res.status(401).json({ message: "Invalid credentials" });
