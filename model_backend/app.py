@@ -60,7 +60,7 @@ def recommend():
 # Serve frontend files
 @app.route('/')
 def serve_frontend():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, 'companion.html')
 
 @app.route('/<path:path>')
 def serve_static(path):
