@@ -15,7 +15,7 @@ yieldOp.addEventListener('click', () => {
 
 // Crop Selection
 cropselect.addEventListener('click', () => {
-    window.location.href = 'crop_selection.html';
+    window.location.href = '../frontend/index.html';
 })
 
 // Disease detection
