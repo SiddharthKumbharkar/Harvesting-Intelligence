@@ -17,9 +17,11 @@ require('dotenv').config();
 // };
 exports.register = async (req, res) => {
   try {
-      const { name, email, password, role } = req.body; // Ensure role is included
-
-      if (!name || !email || !password || !role) {
+    console.log("Received Data from Frontend:", req.body);
+      const { name, email, password } = req.body; // Ensure role is included
+      const role = 'farmer';
+    
+      if (!name || !email || !password) {
           return res.status(400).json({ error: "All fields are required" });
       }
 
@@ -59,7 +61,7 @@ exports.login = async (req, res) => {
       const token = jwt.sign(
           { userId: user.id, role: user.role },
           process.env.JWT_SECRET,
-          { expiresIn: '1h' }
+          { expiresIn:  process.env.JWT_EXPIRES_IN }
       );
 
       res.json({ token });

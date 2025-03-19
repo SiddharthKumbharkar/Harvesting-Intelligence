@@ -1,8 +1,8 @@
 const { authDB } = require('../config/db');
 
-const createUser = async (name, email, hashedPassword, role) => {
+const createUser = async (name, email, hashedPassword, role = 'farmer') => {
   const result = await authDB.query(
-    'INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING id',
+    'INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *',
     [name, email, hashedPassword, role]
   );
   return result.rows[0];
