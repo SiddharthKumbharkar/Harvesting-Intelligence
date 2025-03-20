@@ -4,7 +4,11 @@ import pandas as pd
 import networkx as nx
 import os
 
-app = Flask(__name__, static_folder='../frontend')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get current script directory
+FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, '../new_frontend/frontend'))
+
+# app = Flask(__name__, static_folder='../frontend')
+app = Flask(__name__, static_folder=FRONTEND_DIR)
 CORS(app)
 
 # Load dataset and create graph
