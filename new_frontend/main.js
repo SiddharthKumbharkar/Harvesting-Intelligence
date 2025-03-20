@@ -2,23 +2,19 @@ console.log('Harvesting Intelligence website loaded.');
 
 let signIn = document.getElementById('signin');
 let cropselect = document.getElementById('crop-selection');
-let yieldOp = document.getElementById('yield-optimisation');
+let cropRotation = document.getElementById('crop-recommendation');
 
 // Sign In
 signIn.addEventListener('click', () => {
     window.location.href = 'login.html';
 });
 
-// Yield optimisation
-yieldOp.addEventListener('click', () => {
-    window.location.href = 'yield_optimisation.html';
+// Crop Rotation
+cropRotation.addEventListener('click', () => {
+    window.location.href = 'rotation_frontend/rotation.html';
 });
 
 // Crop Selection
-
-cropselect.addEventListener('click', () => {
-    window.location.href = 'crop_selection.html';
-});
 cropselect.addEventListener('click', function (){
     window.location.href = "frontend/companion.html";
 })

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Rotation Recommender</title>
+    <link rel="stylesheet" href="rotation.css">
+    <link rel="icon" href="../images/seedling-solid.svg" type="image/icon type">
+    <script src="https://kit.fontawesome.com/9d1acc721d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="../index.html" class="home-button">Home</a>
+    <div class="container">
+        <h1>Crop Rotation Recommender</h1>
+        <input type="text" id="plantInput" placeholder="Enter a crop name">
+        <button onclick="getRecommendations()">Get Recommendations</button>
+        
+        <div id="results">
+            <h2>Results</h2>
+            <p id="recommendedCrops"></p>
+            <p id="reason"></p>
+            <p id="error"></p>
+        </div>
+    </div>
+    <script src="rotation.js"></script>
+</body>
+</html>
