@@ -32,4 +32,17 @@ app.use(express.json());
 app.use('/auth', require('./routes/authRoutes'));
 app.use('/image', require('./routes/imageRoutes'));
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// Handle undefined routes (404)
+app.use((req, res, next) => {
+    res.status(404).json({ error: 'Route not found' });
+});
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+    console.error("Global Error:", err.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+});
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

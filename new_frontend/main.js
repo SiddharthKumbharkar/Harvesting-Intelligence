@@ -29,7 +29,7 @@ function selectCrop(cropName) {
     window.location.href = `index_${cropName}.html`;
 }
 
-// 🟢 SIGNUP FORM LOGIC
+// SIGNUP FORM LOGIC
 document.addEventListener("DOMContentLoaded", function () {
     const signupForm = document.getElementById("authForm");
 
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 🟢 LOGIN FORM LOGIC (NEWLY ADDED)
+    // LOGIN FORM LOGIC 
     const loginForm = document.querySelector("#signInContainer form");
 
     if (loginForm) {
@@ -105,4 +105,45 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+});
+
+// image upload logic
+
+document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("fileInput");
+
+    async function uploadImage() {
+        const imageFile = fileInput.files[0];
+
+        if (!imageFile) {
+            alert("Please select an image!");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        try {
+            const response = await fetch("http://localhost:5000/upload", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${process.env.JWT_TOKEN}` 
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert(` Upload successful! Filename: ${data.filename}`);
+            } else {
+                alert(`Error: ${data.error}`);
+            }
+        } catch (error) {
+            console.error("Upload error:", error);
+            alert(" Server error! Try again.");
+        }
+    }
+
+    // Attach function to button click
+    window.uploadImage = uploadImage;
 });
