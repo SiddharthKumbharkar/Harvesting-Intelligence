@@ -158,66 +158,66 @@
             window.location.href = 'index.html';
         }
         //  Handle Sign-Up (Send to Backend)
-    document.getElementById("signupForm").addEventListener("submit", async function (e) {
-        e.preventDefault(); // Prevent page reload
+        document.getElementById("signupForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent page reload
 
-        const userData = {
-            name: document.getElementById("signupUsername").value,
-            password: document.getElementById("signupPassword").value,
-            email: document.getElementById("signupEmail").value
-        };
+            const userData = {
+                name: document.getElementById("signupUsername").value,
+                password: document.getElementById("signupPassword").value,
+                email: document.getElementById("signupEmail").value
+            };
 
         try {
-            const response = await fetch("http://localhost:5173/auth/register", {
+            const response = await fetch("http://localhost:5000/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData)
             });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (response.ok) {
-                alert("Signup successful! Redirecting to login page...");
-                toggleForm(); // Switch to login form after sign-up
-            } else {
-                alert(data.message || "Signup failed! Please try again.");
+                if (response.ok) {
+                    alert("Signup successful! Redirecting to login page...");
+                    toggleForm(); // Switch to login form after sign-up
+                } else {
+                    alert(data.message || "Signup failed! Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Signup failed! Check console for errors.");
             }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Signup failed! Check console for errors.");
-        }
-    });
+        });
 
-    // Handle Sign-In (Send to Backend)
-    document.getElementById("signinForm").addEventListener("submit", async function (e) {
-        e.preventDefault(); // Prevent page reload
+        // Handle Sign-In (Send to Backend)
+        document.getElementById("signinForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent page reload
 
-        const userData = {
-            email: document.getElementById("signinEmail").value,
-            password: document.getElementById("signinPassword").value
-        };
+            const userData = {
+                email: document.getElementById("signinEmail").value,
+                password: document.getElementById("signinPassword").value
+            };
 
         try {
-            const response = await fetch("http://localhost:5173/auth/login", {
+            const response = await fetch("http://localhost:5000/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData)
             });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (response.ok) {
-                alert("Login successful!");
-                localStorage.setItem("token", data.token); // Store JWT token
-                window.location.href = "index.html"; // Redirect after login
-            } else {
-                alert(data.message || "Login failed! Check credentials.");
+                if (response.ok) {
+                    alert("Login successful!");
+                    localStorage.setItem("token", data.token); // Store JWT token
+                    window.location.href = "index.html"; // Redirect after login
+                } else {
+                    alert(data.message || "Login failed! Check credentials.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Login failed! Check console for errors.");
             }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Login failed! Check console for errors.");
-        }
-    });
+        });
     
     </script>
 </body>
