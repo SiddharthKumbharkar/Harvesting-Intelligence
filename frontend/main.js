@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             console.log("User Data Before Sending:", userData);
             try {
-                const response = await fetch("http://localhost:5000/auth/register", {
+                const response = await fetch("http://localhost:5173/auth/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(userData)
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById("signinPassword").value;
 
             try {
-                const response = await fetch("http://localhost:5000/auth/login", {
+                const response = await fetch("http://localhost:5173/auth/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("image", imageFile);
 
         try {
-            const response = await fetch("http://localhost:5000/upload", {
+            const response = await fetch("http://localhost:5173/upload", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${process.env.JWT_TOKEN}` 
