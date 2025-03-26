@@ -15,7 +15,7 @@ async function getRecommendations() {
     }
 
     try {
-        const response = await fetch(`http://127.0.0.1:5000/recommend?plant=${plantInput}`);
+        const response = await fetch(`http://127.0.0.1:5002/recommend?plant=${plantInput}`);
         const data = await response.json();
 
         if (data.error) {
