@@ -15,7 +15,7 @@ async function getRecommendations() {
     }
 
     try {
-        const response = await fetch(`http://127.0.0.1:5000/get_rotation?crop=${plantInput}`);
+        const response = await fetch(`http://127.0.0.1:5001/get_rotation?crop=${plantInput}`);
         const data = await response.json();
 
         if (data.status === "error") {
