@@ -1,3 +1,150 @@
+// console.log('Harvesting Intelligence website loaded.');
+
+// let signIn = document.getElementById('signin');
+// let cropselect = document.getElementById('crop-selection');
+// let cropRotation = document.getElementById('crop-recommendation');
+
+// // Sign In
+// signIn.addEventListener('click', () => {
+//     window.location.href = 'login.html';
+// });
+
+// // Crop Rotation
+// cropRotation.addEventListener('click', () => {
+//     window.location.href = 'rotation_frontend/rotation.html';
+// });
+
+// // Crop Selection
+// cropselect.addEventListener('click', function (){
+//     window.location.href = "frontend/companion.html";
+// })
+
+
+// // Disease detection
+// function selectCrop(cropName) {
+//     window.location.href = `index_${cropName}.html`;
+// }
+
+// // SIGNUP FORM LOGIC
+// document.addEventListener("DOMContentLoaded", function () {
+//     const signupForm = document.getElementById("authForm");
+
+//     if (signupForm) {
+//         signupForm.addEventListener("submit", async function (e) {
+//             e.preventDefault(); // Prevents page reload
+
+//             const userData = {
+//                 name: document.getElementById("signupUsername").value,
+//                 email: document.getElementById("signupEmail").value,
+//                 password: document.getElementById("signupPassword").value,
+//                 //role: document.getElementById("role").value
+//             };
+//             console.log("User Data Before Sending:", userData);
+//             try {
+//                 const response = await fetch("http://localhost:5173/auth/register", {
+//                     method: "POST",
+//                     headers: { "Content-Type": "application/json" },
+//                     body: JSON.stringify(userData)
+//                 });
+
+//                 const data = await response.json();
+//                 console.log("Response from Backend:", result);
+
+//                 if (response.ok) {
+//                     alert("Signup successful! Redirecting to login page...");
+//                     window.location.href = "login.html"; // Redirect to login page after signup
+//                 } else {
+//                     alert(data.message || "Signup failed! Please try again.");
+//                 }
+//             } catch (error) {
+//                 console.error("Error:", error);
+//                 alert("Signup failed! Check console for errors.");
+//             }
+//         });
+//     }
+
+//     // LOGIN FORM LOGIC 
+//     const loginForm = document.querySelector("#signInContainer form");
+
+//     if (loginForm) {
+//         loginForm.addEventListener("submit", async function (event) {
+//             event.preventDefault(); // Prevent default form submission
+
+//             const email = document.getElementById("signinEmail").value;
+//             const password = document.getElementById("signinPassword").value;
+
+//             try {
+//                 const response = await fetch("http://localhost:5173/auth/login", {
+//                     method: "POST",
+//                     headers: {
+//                         "Content-Type": "application/json",
+//                     },
+//                     body: JSON.stringify({ email, password }),
+//                 });
+
+//                 const data = await response.json();
+
+//                 if (response.ok) {
+//                     console.log("Login successful, token:", data.token);
+
+//                     // Store token in localStorage
+//                     localStorage.setItem("token", data.token);
+
+//                     // Redirect to dashboard (change as needed)
+//                     window.location.href = "index.html";
+//                 } else {
+//                     alert(data.message || "Login failed. Check credentials.");
+//                 }
+//             } catch (error) {
+//                 console.error("Error:", error);
+//                 alert("An error occurred. Please try again.");
+//             }
+//         });
+//     }
+// });
+
+// // image upload logic
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const fileInput = document.getElementById("fileInput");
+
+//     async function uploadImage() {
+//         const imageFile = fileInput.files[0];
+
+//         if (!imageFile) {
+//             alert("Please select an image!");
+//             return;
+//         }
+
+//         const formData = new FormData();
+//         formData.append("image", imageFile);
+
+//         try {
+//             const response = await fetch("http://localhost:5173/upload", {
+//                 method: "POST",
+//                 headers: {
+//                     "Authorization": `Bearer ${process.env.JWT_TOKEN}` 
+//                 },
+//                 body: formData
+//             });
+
+//             const data = await response.json();
+//             if (response.ok) {
+//                 alert(` Upload successful! Filename: ${data.filename}`);
+//             } else {
+//                 alert(`Error: ${data.error}`);
+//             }
+//         } catch (error) {
+//             console.error("Upload error:", error);
+//             alert(" Server error! Try again.");
+//         }
+//     }
+
+//     // Attach function to button click
+//     window.uploadImage = uploadImage;
+// });
+
+
 console.log('Harvesting Intelligence website loaded.');
 
 let signIn = document.getElementById('signin');
@@ -19,13 +166,24 @@ cropselect.addEventListener('click', function (){
     window.location.href = "frontend/companion.html";
 })
 
-
-// Disease detection
+// Disease detection - Updated to redirect to different ports
 function selectCrop(cropName) {
-    window.location.href = `index_${cropName}.html`;
+    const portMap = {
+        'wheat': 5003,
+        'maize': 5004,
+        'rice': 5005
+    };
+    
+    if (portMap[cropName]) {
+        window.location.href = `http://${window.location.hostname}:${portMap[cropName]}`;
+    } else {
+        console.error('Unknown crop type:', cropName);
+        // Fallback to original behavior if crop isn't recognized
+        window.location.href = `index_${cropName}.html`;
+    }
 }
 
-// SIGNUP FORM LOGIC
+// Rest of your existing code remains the same...
 document.addEventListener("DOMContentLoaded", function () {
     const signupForm = document.getElementById("authForm");
 
@@ -41,14 +199,14 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             console.log("User Data Before Sending:", userData);
             try {
-                const response = await fetch("http://localhost:5173/auth/register", {
+                const response = await fetch("http://localhost:5000/auth/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(userData)
                 });
 
                 const data = await response.json();
-                console.log("Response from Backend:", result);
+                console.log("Response from Backend:", data);
 
                 if (response.ok) {
                     alert("Signup successful! Redirecting to login page...");
@@ -74,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById("signinPassword").value;
 
             try {
-                const response = await fetch("http://localhost:5173/auth/login", {
+                const response = await fetch("http://localhost:5000/auth/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -104,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // image upload logic
-
 document.addEventListener("DOMContentLoaded", function () {
     const fileInput = document.getElementById("fileInput");
 
@@ -119,24 +276,30 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("image", imageFile);
 
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("No token found. Please log in.");
+            return;
+        }
+
         try {
-            const response = await fetch("http://localhost:5173/upload", {
+            const response = await fetch("http://localhost:5003/upload", {
                 method: "POST",
                 headers: {
-                    "Authorization": `Bearer ${process.env.JWT_TOKEN}` 
+                    "Authorization": `Bearer ${token}`
                 },
                 body: formData
             });
 
             const data = await response.json();
             if (response.ok) {
-                alert(` Upload successful! Filename: ${data.filename}`);
+                alert(`Upload successful! Filename: ${data.filename}`);
             } else {
                 alert(`Error: ${data.error}`);
             }
         } catch (error) {
             console.error("Upload error:", error);
-            alert(" Server error! Try again.");
+            alert("Server error! Try again.");
         }
     }
 
