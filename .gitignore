@@ -5,6 +5,4 @@ dist/
 coverage/
 uploads/
 ml_models/
-.env.local
-
 
